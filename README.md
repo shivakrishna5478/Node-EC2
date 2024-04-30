@@ -4,11 +4,12 @@
 
 1. Clone this project
 ```
-git clone https://github.com/verma-kunal/AWS-Session.git
+https://github.com/shivakrishna5478/Node-EC2.git
 ```
 2. Setup the following environment variables - `(.env)` file
+   (generate publishable and secret key from stripe api key) {https://docs.stripe.com/keys}
 ```
-DOMAIN= ""
+DOMAIN= "localhost:3000"
 PORT=3000
 STATIC_DIR="./client"
 
@@ -29,7 +30,7 @@ npm run start
 2. Create an EC2 instance
     - Select an OS image - Ubuntu
     - Create a new key pair & download `.pem` file
-    - Instance type - t2.micro
+    - Instance type - t3.micro
 3. Connecting to the instance using ssh
 ```
 ssh -i instance.pem ubunutu@<IP_ADDRESS>
@@ -48,7 +49,7 @@ sudo apt update
 
 1. Clone this project in the remote VM
 ```
-git clone https://github.com/verma-kunal/AWS-Session.git
+https://github.com/shivakrishna5478/Node-EC2.git
 ```
 2. Setup the following environment variables - `(.env)` file
 ```
@@ -59,7 +60,6 @@ STATIC_DIR="./client"
 PUBLISHABLE_KEY=""
 SECRET_KEY=""
 ```
-> For this project, we'll have to set up an [Elastic IP Address](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html) for our EC2 & that would be our `DOMAIN`
 
 3. Initialise and start the project
 ```
@@ -67,6 +67,5 @@ npm install
 npm run start
 ```
 
-> NOTE - We will have to edit the **inbound rules** in the security group of our EC2, in order to allow traffic from our particular port
+> NOTE - We will have to edit the **inbound rules** in the security group of our EC2, in order to allow traffic from our particular port(add port no 3000 which was used for this project)
 
-### Project is deployed on AWS 🎉
